@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Docking Subjects - Versions</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #0a192f;
+            --secondary: #64ffda;
+            --text: #ccd6f6;
+            --dark: #020c1b;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--primary);
+            color: var(--text);
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        header {
+            background-color: rgba(10, 25, 47, 0.9);
+            padding: 20px 0;
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+        }
+        nav {
+            display: flex;
+            align-items: center;
+        }
+        .nav-container {
+            display: flex;
+            width: 100%;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+        }
+        .logo img {
+            height: 30px;
+        }
+        .logo-text {
+            color: var(--secondary);
+            font-size: 1.8rem;
+            font-weight: 700;
+        }
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+        .nav-links a {
+            color: var(--text);
+            text-decoration: none;
+            font-size: 1.1rem;
+            transition: color 0.3s;
+            position: relative;
+            padding: 5px 0;
+        }
+        .nav-links a:hover {
+            color: var(--secondary);
+        }
+        .nav-links a:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: var(--secondary);
+            transition: width 0.3s ease;
+        }
+        .nav-links a:hover:after {
+            width: 100%;
+        }
+        .hamburger {
+            display: none;
+            cursor: pointer;
+        }
+        footer {
+            text-align: center;
+            padding: 30px 0;
+            background: var(--dark);
+            margin-top: 100px;
+        }
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+        .social-links a {
+            color: var(--text);
+            font-size: 1.5rem;
+            transition: color 0.3s;
+        }
+        .social-links a:hover {
+            color: var(--secondary);
+        }
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            .hamburger {
+                display: block;
+                font-size: 1.8rem;
+            }
+        }
+        :root {
+            --primary: #0a192f;
+            --secondary: #64ffda;
+            --text: #ccd6f6;
+            --dark: #020c1b;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--primary);
+            color: var(--text);
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        .versions-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 80px;
+        }
+        .version-card {
+            background: rgba(2, 12, 27, 0.7);
+            padding: 40px;
+            border-radius: 10px;
+            transition: all 0.3s;
+            border: 1px solid rgba(100, 255, 218, 0.1);
+        }
+        .version-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(100, 255, 218, 0.2);
+            border-color: var(--secondary);
+        }
+        .version-card h3 {
+            font-size: 1.8rem;
+            color: var(--secondary);
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .version-card .price {
+            font-size: 2.5rem;
+            text-align: center;
+            margin: 20px 0;
+        }
+        .version-card .free {
+            color: var(--secondary);
+        }
+        .version-card ul {
+            list-style: none;
+            margin: 30px 0;
+        }
+        .version-card ul li {
+            margin-bottom: 15px;
+            position: relative;
+            padding-left: 25px;
+        }
+        .version-card ul li::before {
+            content: '✓';
+            color: var(--secondary);
+            position: absolute;
+            left: 0;
+        }
+        .version-card .btn {
+            display: block;
+            width: 100%;
+            text-align: center;
+            padding: 12px;
+            background: transparent;
+            border: 1px solid var(--secondary);
+            color: var(--secondary);
+            border-radius: 4px;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        .version-card .btn:hover {
+            background: rgba(100, 255, 218, 0.1);
+        }
+        .version-header {
+            text-align: center;
+            margin-bottom: 50px;
+            padding-top: 100px;
+        }
+        .version-header h1 {
+            font-size: 3rem;
+            color: var(--secondary);
+            margin-bottom: 20px;
+        }
+        .version-header p {
+            max-width: 700px;
+            margin: 0 auto;
+            font-size: 1.2rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="version-header">
+        <h1>Available Versions</h1>
+        <p>Choose the version that best fits your needs. All versions include regular updates and security patches.</p>
+    </div>
+
+    <div class="container">
+        <div class="versions-container">
+            <div class="version-card">
+                <h3>Open Source</h3>
+                <div class="price free">FREE</div>
+                <ul>
+                    <li>Full source code included</li>
+                    <li>Community support</li>
+                    <li>All basic features</li>
+                    <li>Ideal for developers</li>
+                    <li>MIT License</li>
+                    <li>Customizable</li>
+                </ul>
+                <a href="#" class="btn">Download Now</a>
+            </div>
+            
+            <div class="version-card">
+                <h3>Professional</h3>
+                <div class="price">$49.99</div>
+                <ul>
+                    <li>All features unlocked</li>
+                    <li>Stable releases</li>
+                    <li>Priority support</li>
+                    <li>Commercial license</li>
+                    <li>Regular updates</li>
+                    <li>Documentation included</li>
+                </ul>
+                <a href="#" class="btn">Purchase Now</a>
+            </div>
+
+            <div class="version-card">
+                <h3>Enterprise</h3>
+                <div class="price">Contact Us</div>
+                <ul>
+                    <li>Custom solutions</li>
+                    <li>Dedicated support</li>
+                    <li>White-label options</li>
+                    <li>API access</li>
+                    <li>Training included</li>
+                    <li>Volume discounts</li>
+                </ul>
+                <a href="#" class="btn">Request Demo</a>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="social-links">
+                <a href="#"><i class="fab fa-github"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-discord"></i></a>
+            </div>
+            <p>© 2025 CorridorDCO. All rights reserved.</p>
+            <p>Docking Subjects v1.0.0.2-0630.beta</p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        document.querySelector('.hamburger').addEventListener('click', function() {
+            document.querySelector('.nav-links').classList.toggle('active');
+        });
+    </script>
+</body>
+</html>
