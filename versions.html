@@ -268,6 +268,18 @@
         </div>
     </div>
 
+    <section id="downloads" class="container" style="padding: 80px 0;">
+        <h2 class="section-title">Downloads</h2>
+        <div class="download-buttons" style="display: flex; gap: 20px; justify-content: center;">
+            <button class="btn download-btn" data-url="https://github.com/yourusername/yourrepo/raw/main/path/to/file1.zip">
+                Download Open Source Version
+            </button>
+            <button class="btn download-btn" data-url="https://github.com/yourusername/yourrepo/raw/main/path/to/file2.zip">
+                Download Professional Version
+            </button>
+        </div>
+    </section>
+
     <footer>
         <div class="container">
             <div class="social-links">
@@ -286,5 +298,28 @@
             document.querySelector('.nav-links').classList.toggle('active');
         });
     </script>
-</body>
-</html>
+     <script>
+         // Download functionality
+         document.querySelectorAll('.download-btn').forEach(btn => {
+             btn.addEventListener('click', function() {
+                 const fileUrl = this.getAttribute('data-url');
+                 const fileName = fileUrl.split('/').pop();
+                 
+                 // Create temporary link
+                 const link = document.createElement('a');
+                 link.href = fileUrl;
+                 link.download = fileName;
+                 link.target = '_blank';
+                 
+                 // Trigger download
+                 document.body.appendChild(link);
+                 link.click();
+                 document.body.removeChild(link);
+                 
+                 // Optional: Add download tracking
+                 console.log(`Download initiated: ${fileName}`);
+             });
+         });
+     </script>
+ </body>
+ </html>
